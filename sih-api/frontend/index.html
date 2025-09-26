@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Root Force</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: rgba(234, 242, 252, 0.93);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: background 0.4s, color 0.4s;
+    }
+
+    /* Navbar */
+    nav {
+      width: 100%;
+      background: rgba(234, 242, 252, 0.93);
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background 0.4s, color 0.4s;
+    }
+
+    nav h1 {
+      margin: 0;
+      font-size: 24px;
+      font-weight: 600;
+    }
+
+    nav a {
+      color: black;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 8px 16px;
+      border-radius: 8px;
+      transition: background 0.3s;
+    }
+
+    nav a:hover {
+      background: rgba(255,255,255,0.2);
+    }
+
+    h1 { 
+      text-align: center; 
+      color: #333; 
+      margin: 25px 0; 
+      transition: color 0.4s;
+    }
+
+    /* Main container */
+    .container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 25px;
+      justify-content: center;
+      width: 90%;
+      max-width: 1000px;
+      margin-bottom: 50px;
+    }
+
+    /* Card styling */
+    .card {
+      background: linear-gradient(145deg, #ffffff, #e0e0e0);
+      border-radius: 15px;
+      padding: 25px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s, background 0.4s, color 0.4s;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 20px rgba(0,0,0,0.2);
+    }
+
+    h2 {
+      color: #1e88e5;
+      font-size: 20px;
+      margin-bottom: 15px;
+      transition: color 0.4s;
+    }
+
+    input {
+      width: 75%;
+      padding: 12px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 14px;
+      transition: background 0.4s, color 0.4s, border 0.4s;
+    }
+
+    button {
+      padding: 10px 18px;
+      border: none;
+      background: #1e88e5;
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+      margin-bottom: 10px;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    button:hover {
+      background: #1565c0;
+    }
+
+    pre {
+      background: #f0f0f0;
+      padding: 12px;
+      border-radius: 8px;
+      width: 100%;
+      white-space: pre-wrap;
+      height: 120px;
+      overflow-y: auto;
+      font-size: 14px;
+      transition: background 0.4s, color 0.4s;
+    }
+
+    .root { font-size: 25px; }
+    .search { font-size: 50px; }
+    .navbarDiv { display: flex; }
+
+    @media (max-width: 850px) {
+      .container {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Dark mode styles */
+    .dark-mode {
+      background-color: #121212;
+      color: #f5f5f5;
+    }
+
+    .dark-mode nav {
+      background-color: #1f1f1f !important;
+    }
+
+    .dark-mode .card {
+      background: linear-gradient(145deg, #2a2a2a, #1c1c1c);
+      color: #f5f5f5;
+    }
+
+    .dark-mode input {
+      background: #333;
+      color: #fff;
+      border: 1px solid #555;
+    }
+
+    .dark-mode button {
+      background: #444;
+      color: #fff;
+    }
+
+    .dark-mode pre {
+      background: #2e2e2e;
+      color: #f5f5f5;
+    }
+
+    .dark-mode h2 {
+      color: #90caf9;
+    }
+
+    .dark-mode h1 {
+      color: #e3f2fd;
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Root-Force</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
+      data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" 
+      aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Namaste</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">ICD</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Dropdown
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">About Our Team</a></li>
+            <li><a class="dropdown-item" href="#">Contribution</a></li>
+          </ul>
+        </li>
+      </ul>
+      <button class="btn btn-outline-success" id="darkModeBtn" type="button">Dark Mode</button>
+    </div>
+  </div>
+</nav>
+
+<h1 class="search">Search Interface</h1>
+
+<div class="container">
+
+  <!-- 1. Search by Namaste Code -->
+  <div class="card">
+    <h2>1) Search by Namaste Code</h2>
+    <input id="namasteCode" placeholder="Enter Namaste Code (e.g., NAM007)">
+    <button onclick="searchNamaste()">Search</button>
+    <pre id="namasteResult"></pre>
+  </div>
+
+  <!-- 2. Search by ICD Code -->
+  <div class="card">
+    <h2>2) Search by ICD Code</h2>
+    <input id="icdCode" placeholder="Enter ICD Code (e.g., DA21)">
+    <button onclick="searchICD()">Search</button>
+    <pre id="icdResult"></pre>
+  </div>
+
+  <!-- 3. Translate Codes -->
+  <div class="card">
+    <h2>3) Translate Code (Namaste ↔ ICD)</h2>
+    <input id="translateCode" placeholder="Enter Namaste or ICD Code">
+    <button onclick="translateCode()">Translate</button>
+    <pre id="translateResult"></pre>
+  </div>
+
+  <!-- 4. Search by Disease Name -->
+  <div class="card">
+    <h2>4) Search by Disease Name (Fuzzy)</h2>
+    <input id="diseaseName" placeholder="Enter Disease Name (e.g., Constipation)">
+    <button onclick="searchDisease()">Search</button>
+    <pre id="diseaseResult"></pre>
+  </div>
+
+</div>
+
+<script>
+const API_BASE = "http://127.0.0.1:8000";
+
+// Dark Mode Toggle
+document.getElementById("darkModeBtn").addEventListener("click", () => {
+  document.body.classList.toggle("dark-mode");
+  
+  let btn = document.getElementById("darkModeBtn");
+  if (document.body.classList.contains("dark-mode")) {
+    btn.textContent = "Light Mode";
+  } else {
+    btn.textContent = "Dark Mode";
+  }
+});
+
+// API functions
+async function searchNamaste() {
+  let code = document.getElementById("namasteCode").value;
+  let res = await fetch(`${API_BASE}/namaste/search?code=${code}`);
+  let data = await res.json();
+  document.getElementById("namasteResult").textContent = JSON.stringify(data, null, 2);
+}
+
+async function searchICD() {
+  let code = document.getElementById("icdCode").value;
+  let res = await fetch(`${API_BASE}/icd/search?code=${code}`);
+  let data = await res.json();
+  document.getElementById("icdResult").textContent = JSON.stringify(data, null, 2);
+}
+
+async function translateCode() {
+  let code = document.getElementById("translateCode").value;
+  let res = await fetch(`${API_BASE}/translate?code=${code}`);
+  let data = await res.json();
+  document.getElementById("translateResult").textContent = JSON.stringify(data, null, 2);
+}
+
+async function searchDisease() {
+  let name = document.getElementById("diseaseName").value.trim();
+
+  if (!name) {
+    document.getElementById("diseaseResult").textContent = "⚠️ Please enter a disease name.";
+    return;
+  }
+
+  try {
+    let res = await fetch(`${API_BASE}/fuzzy/search?query=${encodeURIComponent(name)}`);
+    
+    if (!res.ok) {
+      throw new Error(`Server error: ${res.status}`);
+    }
+
+    let data = await res.json();
+
+    if (data.length === 0) {
+      document.getElementById("diseaseResult").textContent = "❌ No match found.";
+    } else {
+      document.getElementById("diseaseResult").textContent = JSON.stringify(data, null, 2);
+    }
+  } catch (err) {
+    document.getElementById("diseaseResult").textContent = `🚨 Error: ${err.message}`;
+    console.error(err);
+  }
+}
+
+
+</script>
+
+</body>
+</html>
