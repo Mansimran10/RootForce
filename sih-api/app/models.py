@@ -1,6 +1,13 @@
 from pydantic import BaseModel
 from typing import List, Optional
 
+class ConceptMapMapping(BaseModel):
+    source_code: str
+    target_code: str
+    relationship: str
+    snomed_ct_code: str
+    loinc_code: str
+
 class CodeSystemConcept(BaseModel):
     code: str
     display: str
@@ -11,11 +18,6 @@ class CodeSystem(BaseModel):
     id: str
     name: str
     concept: List[CodeSystemConcept]
-
-class ConceptMapMapping(BaseModel):
-    source_code: str
-    target_code: str
-    relationship: str
 
 class ConceptMap(BaseModel):
     resourceType: str = "ConceptMap"
